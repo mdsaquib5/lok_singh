@@ -1,8 +1,9 @@
 import React from "react";
-import { outfit, jost } from "../fonts/font";
-import "./layout.css";
+import { outfit, montserrat } from "../fonts/font";
 import "./globals.css";
+import "./layout.css";
 import "./responsive.css";
+import Header from "@/components/layout/Header";
 
 export const metadata = {
   title: "Lok_Singh | Journalist",
@@ -12,7 +13,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth" style={{ scrollBehavior: 'smooth' }}>
-      <body className={`${outfit.variable} ${jost.variable} ${outfit.className}`}>
+      <body className={`${outfit.variable} ${montserrat.variable} ${outfit.className}`}>
+        <Header />
         {children}
       </body>
     </html>
