@@ -1,31 +1,12 @@
 'use client';
 import { useEffect, useState } from "react";
+import CountUp from "react-countup";
 
 const roles = [
     "Journalist",
     "Ground Reporter",
     "Public Speaker"
 ];
-
-const Counter = ({ end, duration, suffix = '' }) => {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-        let startTime = null;
-        const animate = (time) => {
-            if (!startTime) startTime = time;
-            const progress = time - startTime;
-            const current = Math.min(Math.floor((progress / duration) * end), end);
-            setCount(current);
-            if (progress < duration) {
-                requestAnimationFrame(animate);
-            }
-        };
-        requestAnimationFrame(animate);
-    }, [end, duration]);
-
-    return <span>{count}{suffix}</span>;
-};
 
 const Hero = () => {
     const [index, setIndex] = useState(0);
@@ -73,15 +54,15 @@ const Hero = () => {
 
                         {/* Stat Cards */}
                         <div className="stat-card stat-1">
-                            <div className="stat-value"><Counter end={50} duration={2000} suffix="K+" /></div>
+                            <div className="stat-value"><CountUp end={50} duration={2} suffix="K+" enableScrollSpy scrollSpyOnce /></div>
                             <div className="stat-label">Instagram</div>
                         </div>
                         <div className="stat-card stat-2">
-                            <div className="stat-value"><Counter end={100} duration={2500} suffix="K+" /></div>
+                            <div className="stat-value"><CountUp end={100} duration={2.5} suffix="K+" enableScrollSpy scrollSpyOnce /></div>
                             <div className="stat-label">YouTube</div>
                         </div>
                         <div className="stat-card stat-3">
-                            <div className="stat-value"><Counter end={500} duration={3000} suffix="+" /></div>
+                            <div className="stat-value"><CountUp end={500} duration={3} suffix="+" enableScrollSpy scrollSpyOnce /></div>
                             <div className="stat-label">Articles</div>
                         </div>
                     </div>
