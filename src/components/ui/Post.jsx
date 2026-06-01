@@ -38,7 +38,7 @@ const Post = () => {
     };
 
     return (
-        <section className="post-bg">
+        <section className="post-bg" id='trends'>
             <div className="container">
                 <div className='bg-center-heading'>
                     <div className='center-sub-heading'>Latest Coverage</div>

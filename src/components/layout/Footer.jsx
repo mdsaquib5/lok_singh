@@ -21,8 +21,8 @@ const Footer = () => {
                     </div>
                     <div className="footer-right">
                         <div className="social-links">
-                            <Link href="#" className="social-icon"><FaYoutube /></Link>
-                            <Link href="#" className="social-icon"><FaInstagram /></Link>
+                            <Link href={'https://www.youtube.com/@BeyondTheScriptByLok'} target='_blank' className="social-icon"><FaYoutube /></Link>
+                            <Link href={'https://www.instagram.com/lok_singh_/'} target='_blank' className="social-icon"><FaInstagram /></Link>
                         </div>
                     </div>
                 </div>

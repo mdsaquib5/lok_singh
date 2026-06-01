@@ -19,7 +19,7 @@ const Brands = () => {
     ];
 
     return (
-        <div className="brand-bg">
+        <div className="brand-bg" id="brands">
             <div className="marque-brands-logo">
                 <Swiper
                     modules={[Autoplay]}

@@ -13,10 +13,7 @@ export default function AdminLayout({ children }) {
       <div className="topbar">
         <div className='container'>
           <div className='header-part'>
-            <div className="brandContainer">
-              <Logo />
-              <span className="welcomeText">Welcome Back!</span>
-            </div>
+            <Logo />
             <nav className="topbarNav">
               <Link href="/admin" className="topbarIcon" title="Dashboard">
                 <FiGrid />

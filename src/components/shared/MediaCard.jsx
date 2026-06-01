@@ -8,7 +8,7 @@ const MediaCard = ({ item }) => {
                 <Link href={item.link || '/'}><Image src={item.image} alt={item.alt || "post-bg"} width={item.width} height={item.height} priority /></Link>
             </div>
             <div className="media-content">
-                <Link href={'/'} className="media-title">{item.title}</Link>
+                <Link href={item.link || '/'} className="media-title">{item.title}</Link>
                 <p>{item.description}</p>
                 <div className="date-author">
                     <div className="author">

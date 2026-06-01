@@ -21,6 +21,10 @@
         gap: 20px;
     }
 
+    nav ul {
+        list-style: none;
+    }
+
     .main-nav nav ul li {
         letter-spacing: 0.9px;
         font-size: 14px;
@@ -229,6 +233,14 @@
     .grid {
         grid-template-columns: 1fr;
     }
+
+    .blog-header-detail {
+        flex-direction: column;
+    }
+
+    .article .title {
+        font-size: 50px;
+    }
 }
 
 /* <= 992px */
@@ -298,6 +310,18 @@
 
     .grid {
         grid-template-columns: 1fr !important;
+    }
+
+    .article .content h2 {
+        font-size: 28px;
+    }
+
+    .article .content h3 {
+        font-size: 26;
+    }
+
+    .article .title {
+        font-size: 36px;
     }
 
 }
@@ -387,5 +411,20 @@
 
     .statsGrid {
         grid-template-columns: 1fr;
+    }
+
+    .article .title {
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    .article .content h2 {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .article .content h3 {
+        font-size: 22px;
+        font-weight: 500;
     }
 }

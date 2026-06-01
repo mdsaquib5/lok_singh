@@ -42,7 +42,7 @@ const mediaData = [
 const Media = () => {
 
     return (
-        <section>
+        <section id="insights">
             <div className="container">
                 <div className='bg-center-heading'>
                     <div className='center-sub-heading'>MEDIA INSIGHTS</div>

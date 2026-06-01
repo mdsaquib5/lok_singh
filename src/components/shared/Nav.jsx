@@ -37,10 +37,9 @@ const Nav = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
             <nav>
                 <ul>
                     <li><Link href={'/'}>Home</Link></li>
-                    <li><Link href={'/'}>About</Link></li>
-                    <li><Link href={'/'}>Trending</Link></li>
-                    <li><Link href={'/'}>Media Insights</Link></li>
-                    <li><Link href={'/'}>Brands</Link></li>
+                    <li><Link href={'/#about'}>About</Link></li>
+                    <li><Link href={'/#trends'}>Trending</Link></li>
+                    <li><Link href={'/#insights'}>Media Insights</Link></li>
                     <li><Link href={'/'}>Press Kit</Link></li>
                     <li><Link href={'/'}>Newsroom</Link></li>
                     <li className="dropdown">
