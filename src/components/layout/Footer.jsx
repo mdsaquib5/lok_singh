@@ -1,7 +1,16 @@
+"use client";
+
 import Link from 'next/link';
 import { FaInstagram, FaYoutube } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
 
 const Footer = () => {
+    const pathname = usePathname();
+
+    if (pathname && pathname.startsWith('/admin')) {
+        return null;
+    }
+
     return (
         <footer>
             <div className="container">
