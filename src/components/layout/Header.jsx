@@ -1,8 +1,25 @@
+"use client";
+import { useState, useEffect } from "react";
 import MediaButtons from "../shared/MediaButtons";
 import Logo from "../shared/Logo";
 import Nav from "../shared/Nav";
+import { CiMenuFries } from "react-icons/ci";
+import { useMediaQuery } from "react-responsive";
 
 const Header = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    const isMobile = useMediaQuery({ query: '(max-width: 576px)' });
+
+    const toggleMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    }
+
     return (
         <header>
             <div className="container">
@@ -11,10 +28,11 @@ const Header = () => {
                         <Logo />
                     </div>
                     <div className="menu-wrap">
-                        <Nav />
+                        <Nav isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
                     </div>
                     <div className="media-wrap">
-                        <MediaButtons />
+                        {(!mounted || !isMobile) && <MediaButtons />}
+                        <button className='mobile-menu-btn' onClick={toggleMenu}><CiMenuFries /></button>
                     </div>
                 </div>
             </div>

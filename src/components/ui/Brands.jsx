@@ -5,7 +5,18 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const Brands = () => {
-    const logos = [1, 2, 3, 4, 5, 6, 7, 8];
+    const logos = [
+        '/brands/brand-2.webp',
+        '/brands/brand-3.webp',
+        '/brands/brand-2.webp',
+        '/brands/brand-3.webp',
+        '/brands/brand-2.webp',
+        '/brands/brand-3.webp',
+        '/brands/brand-2.webp',
+        '/brands/brand-3.webp',
+        '/brands/brand-2.webp',
+        '/brands/brand-3.webp',
+    ];
 
     return (
         <div className="brand-bg">
@@ -24,12 +35,13 @@ const Brands = () => {
                     breakpoints={{
                         320: { slidesPerView: 2, spaceBetween: 20 },
                         768: { slidesPerView: 4, spaceBetween: 40 },
-                        1024: { slidesPerView: 7, spaceBetween: 50 },
+                        1024: { slidesPerView: 5, spaceBetween: 50 },
+                        1440: { slidesPerView: 7, spaceBetween: 50 },
                     }}
                 >
-                    {logos.map((item, index) => (
+                    {logos.map((src, index) => (
                         <SwiperSlide key={index}>
-                            <Image src={'/brand-1.webp'} alt={'brand-logo'} className="brand-logo" width={176} height={108} />
+                            <Image src={src} alt={`brand-logo-${index + 1}`} className="brand-logo" width={256} height={140} />
                         </SwiperSlide>
                     ))}
                 </Swiper>

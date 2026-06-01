@@ -1,5 +1,43 @@
-import Image from "next/image";
-import Link from "next/link";
+import MediaCard from "../shared/MediaCard";
+
+const mediaData = [
+    {
+        title: "Voices from the Ground: The Unseen Impact of the Urban Housing Crisis",
+        description: "An in-depth ground report exposing the realities of displacement in rapidly gentrifying neighborhoods, featuring exclusive interviews with affected families and local policy makers.",
+        image: "/post/post-1.jpg",
+        date: "12 September, 2026",
+        link: "/",
+        width: 640,
+        height: 984,
+    },
+    {
+        title: "Following the Money: Uncovering Corporate Loopholes in Environmental Policies",
+        description: "A comprehensive investigative piece detailing how major corporations are bypassing new emission standards, based on months of analyzing public records and whistleblower testimony.",
+        image: "/post/post-2.jpg",
+        date: "05 October, 2026",
+        link: "/",
+        width: 640,
+        height: 984,
+    },
+    {
+        title: "The Rural Divide: Shifts in Voter Sentiment Ahead of the General Elections",
+        description: "Traveling across the heartland to capture the shifting political landscape. This article explores the economic concerns driving unprecedented voter turnout in rural communities.",
+        image: "/post/post-3.jpg",
+        date: "18 November, 2026",
+        link: "/",
+        width: 640,
+        height: 1006,
+    },
+    {
+        title: "Preserving Heritage: The Artisans Fighting to Keep Ancient Traditions Alive",
+        description: "A compelling photo-essay and feature article documenting the daily lives of indigenous craftsmen as they navigate the challenges of modern industrialization.",
+        image: "/post/post-4.jpg",
+        date: "02 December, 2026",
+        link: "/",
+        width: 640,
+        height: 1006,
+    }
+];
 
 const Media = () => {
 
@@ -11,70 +49,9 @@ const Media = () => {
                     <div className='center-main-heading' style={{ color: '#1e293b' }}>Press & Media Coverage</div>
                 </div>
                 <div className="media-grid">
-                    <div className="media-card">
-                        <div className="media-image">
-                            <Link href={'/'}><Image src={"/post-bg.jpg"} alt={"post-bg"} width={640} height={554} priority /></Link>
-                        </div>
-                        <div className="media-content">
-                            <h3 className="media-title">Featured Interview: Exploring the Future of Immersive Web Experiences and Next-Gen Architecture</h3>
-                            <p>Recently sat down with TechWeekly to discuss the evolving landscape of digital experiences. We explored how modern frameworks are bridging the gap between aesthetic design and high-performance applications.</p>
-                            <div className="date-author">
-                                <div className="author">
-                                    <Image src={'/hero-img-3.jpg'} alt={'Profile'} width={256} height={314} priority />
-                                    <span className="writer">Lokbhadra Singh</span>
-                                </div>
-                                <span className="date-text">24 August, 2026</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="media-card">
-                        <div className="media-image">
-                            <Link href={'/'}><Image src={"/post-bg.jpg"} alt={"post-bg"} width={640} height={554} priority /></Link>
-                        </div>
-                        <div className="media-content">
-                            <h3 className="media-title">Mastering React: A Comprehensive 30-Day Blueprint for Accelerating Your Frontend Journey</h3>
-                            <p>Discover the step-by-step roadmap to accelerating your frontend development skills. In this comprehensive guide, we break down core React concepts, state management, and modern component architecture.</p>
-                            <div className="date-author">
-                                <div className="author">
-                                    <Image src={'/hero-img-3.jpg'} alt={'Profile'} width={256} height={314} priority />
-                                    <span className="writer">Lokbhadra Singh</span>
-                                </div>
-                                <span className="date-text">24 August, 2026</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="media-card">
-                        <div className="media-image">
-                            <Link href={'/'}><Image src={"/post-bg.jpg"} alt={"post-bg"} width={500} height={300} priority /></Link>
-                        </div>
-                        <div className="media-content">
-                            <h3 className="media-title">Building Scalable Products from Scratch: An Inside Look at Engineering Robust Applications</h3>
-                            <p>An inside look into my development process and the architectural decisions behind building robust, scalable applications that handle real-world traffic while delivering exceptional user experiences.</p>
-                            <div className="date-author">
-                                <div className="author">
-                                    <Image src={'/hero-img-3.jpg'} alt={'Profile'} width={256} height={314} priority />
-                                    <span className="writer">Lokbhadra Singh</span>
-                                </div>
-                                <span className="date-text">24 August, 2026</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="media-card">
-                        <div className="media-image">
-                            <Link href={'/'}><Image src={"/post-bg.jpg"} alt={"post-bg"} width={640} height={554} priority /></Link>
-                        </div>
-                        <div className="media-content">
-                            <h3 className="media-title">Why UI/UX is the Ultimate Differentiator in Today's Crowded and Competitive Digital Landscape</h3>
-                            <p>In a crowded digital space, functionality alone isn't enough. Read my latest thoughts on why investing in seamless user interfaces and intuitive user journeys is critical for long-term product success.</p>
-                            <div className="date-author">
-                                <div className="author">
-                                    <Image src={'/hero-img-3.jpg'} alt={'Profile'} width={256} height={314} priority />
-                                    <span className="writer">Lokbhadra Singh</span>
-                                </div>
-                                <span className="date-text">24 August, 2026</span>
-                            </div>
-                        </div>
-                    </div>
+                    {mediaData.map((item, index) => (
+                        <MediaCard key={index} item={item} index={index} />
+                    ))}
                 </div>
             </div>
         </section>

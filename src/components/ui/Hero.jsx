@@ -39,7 +39,7 @@ const Hero = () => {
                     <div className="hero-content">
                         <div className="hero-title">Hi, I'm Lokbhadra Singh</div>
                         <div className="hero-subtitle">I am a <span className="highlight-text">{roles[index].substring(0, subIndex)}<span className="typing-cursor"></span></span></div>
-                        <div className="hero-tagline">Ex. Times Of India</div>
+                        <div className="hero-tagline">Sub Editor at India Today</div>
                         <p className="hero-description">
                             With extensive experience in investigative reporting and storytelling, I am passionate about uncovering the truth and sharing compelling narratives that matter. My work at the Times of India has honed my skills in delivering impactful news to a diverse audience.
                         </p>
@@ -51,19 +51,17 @@ const Hero = () => {
                         <div className="floating-img float-2">
                             <img src="/hero-img-3.jpg" alt="News" />
                         </div>
-
-                        {/* Stat Cards */}
                         <div className="stat-card stat-1">
-                            <div className="stat-value"><CountUp end={50} duration={2} suffix="K+" enableScrollSpy scrollSpyOnce /></div>
+                            <div className="stat-value"><CountUp end={4} duration={2} suffix="K+" enableScrollSpy scrollSpyOnce /></div>
                             <div className="stat-label">Instagram</div>
                         </div>
                         <div className="stat-card stat-2">
-                            <div className="stat-value"><CountUp end={100} duration={2.5} suffix="K+" enableScrollSpy scrollSpyOnce /></div>
+                            <div className="stat-value"><CountUp end={343} duration={2.5} suffix="+" enableScrollSpy scrollSpyOnce /></div>
                             <div className="stat-label">YouTube</div>
                         </div>
                         <div className="stat-card stat-3">
-                            <div className="stat-value"><CountUp end={500} duration={3} suffix="+" enableScrollSpy scrollSpyOnce /></div>
-                            <div className="stat-label">Articles</div>
+                            <div className="stat-value"><CountUp end={255} duration={3} suffix="+" enableScrollSpy scrollSpyOnce /></div>
+                            <div className="stat-label">Post</div>
                         </div>
                     </div>
                 </div>

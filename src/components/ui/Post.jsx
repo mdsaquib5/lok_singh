@@ -16,13 +16,13 @@ const Post = () => {
     const [currentPoster, setCurrentPoster] = useState(null);
 
     const posts = [
-        { img: "/post-1.jpg", video: "/sample-video.mp4" },
-        { img: "/post-1.jpg", video: "/sample-video.mp4" },
-        { img: "/post-1.jpg", video: "/sample-video.mp4" },
-        { img: "/post-1.jpg", video: "/sample-video.mp4" },
-        { img: "/post-1.jpg", video: "/sample-video.mp4" },
-        { img: "/post-1.jpg", video: "/sample-video.mp4" },
-        { img: "/post-1.jpg", video: "/sample-video.mp4" },
+        { img: "/post/post-1.jpg", video: "/post/videos/video-1.mp4" },
+        { img: "/post/post-2.jpg", video: "/post/videos/video-2.mp4" },
+        { img: "/post/post-3.jpg", video: "/post/videos/video-3.mp4" },
+        { img: "/post/post-4.jpg", video: "/post/videos/video-4.mp4" },
+        { img: "/post/post-5.jpg", video: "/post/videos/video-5.mp4" },
+        { img: "/post/post-6.jpg", video: "/post/videos/video-6.mp4" },
+        { img: "/post/post-7.jpg", video: "/post/videos/video-7.mp4" },
     ];
 
     const openVideo = (video, poster) => {
@@ -97,7 +97,7 @@ const Post = () => {
                 <div className="video-modal-overlay">
                     <button
                         onClick={closeVideo}
-                        className="close-btn"
+                        className="close-btn-1"
                     >
                         <IoCloseOutline />
                     </button>
