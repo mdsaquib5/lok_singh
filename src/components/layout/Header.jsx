@@ -22,7 +22,7 @@ const Header = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     }
 
-    if (pathname && pathname.startsWith('/admin')) {
+    if (pathname && (pathname.startsWith('/admin') || pathname.startsWith('/launching'))) {
         return null;
     }
 

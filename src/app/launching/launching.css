@@ -1,0 +1,328 @@
+.launching-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #0b0f19;
+  color: #f8fafc;
+  font-family: inherit;
+  padding: 20px;
+}
+
+/* Background Glowing Blobs */
+.glow-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.45;
+  z-index: 1;
+  pointer-events: none;
+  animation: floatBlobs 20s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+  background: radial-gradient(circle, #f43f5e 0%, rgba(244, 63, 94, 0) 70%);
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  background: radial-gradient(circle, #f59e0b 0%, rgba(245, 158, 11, 0) 70%);
+  bottom: -15%;
+  right: -10%;
+  animation-delay: 5s;
+}
+
+.blob-3 {
+  background: radial-gradient(circle, #3b82f6 0%, rgba(59, 130, 246, 0) 70%);
+  top: 40%;
+  left: 60%;
+  width: 400px;
+  height: 400px;
+  animation-delay: 2s;
+}
+
+@keyframes floatBlobs {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  100% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+/* Glassmorphism Card Container */
+.glass-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 680px;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 48px 40px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Coming Soon Badge */
+.soon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #fbbf24;
+  text-transform: uppercase;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #fbbf24;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(251, 191, 36, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0);
+  }
+}
+
+/* Typography */
+.launching-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 40%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.launching-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 540px;
+  margin: 0;
+}
+
+/* Feature Context Box */
+.context-box {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 12px 0;
+  text-align: left;
+}
+
+.context-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.context-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.context-icon {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: #3b82f6;
+  display: block;
+}
+
+.context-item h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: #f8fafc;
+}
+
+.context-item p {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin: 0;
+  color: #64748b;
+}
+
+/* Subscription Form */
+.notify-form {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.notify-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.notify-input:focus {
+  border-color: #fbbf24;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.15);
+}
+
+.notify-input::placeholder {
+  color: #475569;
+}
+
+.notify-button {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #0f172a;
+  border: none;
+  border-radius: 12px;
+  padding: 0 24px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.notify-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px -10px rgba(245, 158, 11, 0.5);
+  filter: brightness(1.05);
+}
+
+.notify-button:active {
+  transform: translateY(1px);
+}
+
+/* Back Link styling */
+.back-home-link {
+  font-size: 0.9rem;
+  color: #64748b;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  transition: color 0.3s ease;
+}
+
+.back-home-link:hover {
+  color: #cbd5e1;
+}
+
+/* Success Message */
+.success-msg {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .glass-card {
+    padding: 32px 24px;
+    gap: 20px;
+  }
+  
+  .launching-title {
+    font-size: 2rem;
+  }
+  
+  .launching-desc {
+    font-size: 0.95rem;
+  }
+  
+  .context-box {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .notify-form {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .notify-button {
+    padding: 14px;
+  }
+}

@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 const Footer = () => {
     const pathname = usePathname();
 
-    if (pathname && pathname.startsWith('/admin')) {
+    if (pathname && (pathname.startsWith('/admin') || pathname.startsWith('/launching'))) {
         return null;
     }
 
