@@ -5,7 +5,7 @@ import CountUp from "react-countup";
 
 const About = () => {
     return (
-        <section className="about-bg" id="about">
+        <section id="about" className="about-bg">
             <div className="container">
                 <div className="about-container">
                     <div className="about-image">
