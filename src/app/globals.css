@@ -165,7 +165,7 @@ header {
 
 .hero-content {
     flex: 1;
-    max-width: 600px;
+    max-width: 900px;
 }
 
 .hero-title {
@@ -215,7 +215,6 @@ header {
 .hero-tagline {
     font-size: 20px;
     font-weight: 300;
-    margin-bottom: 16px;
     color: #e0e0e0;
 }
 
@@ -223,6 +222,7 @@ header {
     font-size: 14px;
     line-height: 1.6;
     color: #cccccc;
+    margin-top: 16px;
     font-family: var(--font-montserrat);
 }
 
@@ -345,6 +345,7 @@ header {
 /* hero end */
 .about-bg {
     background-color: #fff;
+    padding-block: 60px;
 }
 
 .about-container {

@@ -241,6 +241,10 @@
     .article .title {
         font-size: 50px;
     }
+
+    .hero-content {
+        max-width: 600px;
+    }
 }
 
 /* <= 992px */
@@ -330,6 +334,10 @@
     .about-stats {
         flex-wrap: wrap;
         row-gap: 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
     }
 
     .stat-2,

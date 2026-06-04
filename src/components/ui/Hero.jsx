@@ -40,9 +40,8 @@ const Hero = () => {
                         <div className="hero-title">Hi, I'm Lokbhadra Singh</div>
                         <div className="hero-subtitle">I am a <span className="highlight-text">{roles[index].substring(0, subIndex)}<span className="typing-cursor"></span></span></div>
                         <div className="hero-tagline">Sub Editor at India Today</div>
-                        <p className="hero-description">
-                            With extensive experience in investigative reporting and storytelling, I am passionate about uncovering the truth and sharing compelling narratives that matter. My work at the Times of India has honed my skills in delivering impactful news to a diverse audience.
-                        </p>
+                        <p className="hero-description">A Jamia Millia Islamia graduate with 2+ years of experience in journalism and reporting. I began my career as a stringer with The Times of India and currently work as a Sub Editor at India Today.</p>
+                        <p className="hero-description">Alongside my editorial role, I actively engage in ground reporting and digital content creation, producing impactful stories that connect with audiences, especially on Instagram. I also manage my independent social media platforms as a content creator and ground reporter, focusing on real issues and on-ground realities.</p>
                     </div>
                     <div className="hero-image">
                         <div className="floating-img float-1">
@@ -52,16 +51,16 @@ const Hero = () => {
                             <img src="/hero-img-3.jpg" alt="News" />
                         </div>
                         <div className="stat-card stat-1">
-                            <div className="stat-value"><CountUp end={4} duration={2} suffix="K+" enableScrollSpy scrollSpyOnce /></div>
-                            <div className="stat-label">Instagram</div>
+                            <div className="stat-value"><CountUp end={178.5} decimals={1} duration={2} suffix="K+" enableScrollSpy scrollSpyOnce /></div>
+                            <div className="stat-label">Views</div>
                         </div>
                         <div className="stat-card stat-2">
-                            <div className="stat-value"><CountUp end={343} duration={2.5} suffix="+" enableScrollSpy scrollSpyOnce /></div>
-                            <div className="stat-label">YouTube</div>
+                            <div className="stat-value"><CountUp end={439} duration={2.5} suffix="K+" enableScrollSpy scrollSpyOnce /></div>
+                            <div className="stat-label">Engagement</div>
                         </div>
                         <div className="stat-card stat-3">
                             <div className="stat-value"><CountUp end={255} duration={3} suffix="+" enableScrollSpy scrollSpyOnce /></div>
-                            <div className="stat-label">Post</div>
+                            <div className="stat-label">Ground Reports</div>
                         </div>
                     </div>
                 </div>
