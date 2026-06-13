@@ -1,12 +1,27 @@
 import dbConnect from '@/lib/mongoose';
 import Blog from '@/models/Blog';
 import Link from 'next/link';
-import { FiPlus, FiEdit2, FiEye } from 'react-icons/fi';
+import { FiPlus, FiEdit2, FiEye, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-export default async function AdminBlogsPage() {
+export const dynamic = 'force-dynamic';
+
+export default async function AdminBlogsPage({ searchParams }) {
   await dbConnect();
 
-  const blogs = await Blog.find().sort({ createdAt: -1 }).lean();
+  // Next.js >= 15 requires awaiting searchParams
+  const params = await searchParams;
+  const page = parseInt(params?.page || '1', 10);
+  const limit = 10;
+  const skip = (page - 1) * limit;
+
+  const totalBlogs = await Blog.countDocuments();
+  const totalPages = Math.ceil(totalBlogs / limit) || 1;
+
+  const blogs = await Blog.find()
+    .sort({ createdAt: -1 })
+    .skip(skip)
+    .limit(limit)
+    .lean();
 
   return (
     <div>
@@ -31,7 +46,7 @@ export default async function AdminBlogsPage() {
             {blogs.map(blog => (
               <tr key={blog._id.toString()}>
                 <td>
-                  <strong>{blog.title}</strong>
+                  <strong>{blog.title || 'Untitled Blog'}</strong>
                   <div className="slug">{blog.slug}</div>
                 </td>
                 <td><span className={`badge ${blog.status}`}>{blog.status}</span></td>
@@ -52,6 +67,32 @@ export default async function AdminBlogsPage() {
           </tbody>
         </table>
       </div>
+
+      {totalPages > 1 && (
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginTop: '2rem' }}>
+          {page > 1 ? (
+            <Link href={`/admin/blogs?page=${page - 1}`} className="btnSecondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', background: '#222', borderRadius: '4px' }}>
+              <FiChevronLeft /> Previous
+            </Link>
+          ) : (
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', background: '#111', color: '#555', borderRadius: '4px', cursor: 'not-allowed' }}>
+              <FiChevronLeft /> Previous
+            </span>
+          )}
+          
+          <span>Page {page} of {totalPages}</span>
+
+          {page < totalPages ? (
+            <Link href={`/admin/blogs?page=${page + 1}`} className="btnSecondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', background: '#222', borderRadius: '4px' }}>
+              Next <FiChevronRight />
+            </Link>
+          ) : (
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', background: '#111', color: '#555', borderRadius: '4px', cursor: 'not-allowed' }}>
+              Next <FiChevronRight />
+            </span>
+          )}
+        </div>
+      )}
     </div>
   );
 }

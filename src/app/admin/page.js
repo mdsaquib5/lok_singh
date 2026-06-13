@@ -4,6 +4,8 @@ import Blog from '@/models/Blog';
 import Link from 'next/link';
 import { FiUsers, FiFileText, FiCheckCircle } from 'react-icons/fi';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboard() {
   await dbConnect();
 

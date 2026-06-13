@@ -1,57 +1,39 @@
+import dbConnect from "@/lib/mongoose";
+import Blog from "@/models/Blog";
 import MediaCard from "../shared/MediaCard";
 
-const mediaData = [
-    {
-        title: "Voices from the Ground: The Unseen Impact of the Urban Housing Crisis",
-        description: "An in-depth ground report exposing the realities of displacement in rapidly gentrifying neighborhoods, featuring exclusive interviews with affected families and local policy makers.",
-        image: "/post/post-1.jpg",
-        date: "12 September, 2026",
-        link: "/",
-        width: 640,
-        height: 984,
-    },
-    {
-        title: "Following the Money: Uncovering Corporate Loopholes in Environmental Policies",
-        description: "A comprehensive investigative piece detailing how major corporations are bypassing new emission standards, based on months of analyzing public records and whistleblower testimony.",
-        image: "/post/post-2.jpg",
-        date: "05 October, 2026",
-        link: "/",
-        width: 640,
-        height: 984,
-    },
-    {
-        title: "The Rural Divide: Shifts in Voter Sentiment Ahead of the General Elections",
-        description: "Traveling across the heartland to capture the shifting political landscape. This article explores the economic concerns driving unprecedented voter turnout in rural communities.",
-        image: "/post/post-3.jpg",
-        date: "18 November, 2026",
-        link: "/",
-        width: 640,
-        height: 1006,
-    },
-    {
-        title: "Preserving Heritage: The Artisans Fighting to Keep Ancient Traditions Alive",
-        description: "A compelling photo-essay and feature article documenting the daily lives of indigenous craftsmen as they navigate the challenges of modern industrialization.",
-        image: "/post/post-4.jpg",
-        date: "02 December, 2026",
-        link: "/",
-        width: 640,
-        height: 1006,
-    }
-];
-
-const Media = () => {
+const Media = async () => {
+    await dbConnect();
+    // Fetch up to 4 recent published blogs
+    const blogs = await Blog.find({ status: 'published' }).sort({ publishedAt: -1 }).limit(4).lean();
 
     return (
-        <section id="insights">
+        <section id="insights" style={{ paddingBottom: '60px' }}>
             <div className="container">
                 <div className='bg-center-heading'>
                     <div className='center-sub-heading'>MEDIA INSIGHTS</div>
                     <div className='center-main-heading' style={{ color: '#1e293b' }}>Press & Media Coverage</div>
                 </div>
                 <div className="media-grid">
-                    {mediaData.map((item, index) => (
-                        <MediaCard key={index} item={item} index={index} />
-                    ))}
+                    {blogs.length === 0 ? (
+                        <p style={{ textAlign: 'center', gridColumn: '1 / -1', padding: '40px 0', color: '#64748b' }}>No media insights published yet.</p>
+                    ) : (
+                        blogs.map((blog) => {
+                            const item = {
+                                title: blog.title,
+                                description: blog.excerpt || (blog.content ? blog.content.replace(/<[^>]+>/g, '').slice(0, 150) + '...' : 'Read more about this article...'),
+                                image: blog.coverImage?.url || '/hero-img-3.jpg',
+                                alt: blog.title,
+                                link: `/articles/${blog.slug}`,
+                                authorImage: blog.author?.avatarUrl,
+                                authorName: blog.author?.name || 'Lokbhadra Singh',
+                                date: new Date(blog.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+                                width: 640,
+                                height: 984,
+                            };
+                            return <MediaCard key={blog._id.toString()} item={item} />;
+                        })
+                    )}
                 </div>
             </div>
         </section>

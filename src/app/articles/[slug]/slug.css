@@ -136,7 +136,7 @@
 }
 
 .content p {
-  margin-bottom: 14px;
+  margin-bottom: 0;
 }
 
 .content a {
@@ -170,5 +170,5 @@
   object-fit: cover;
   height: 400px;
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-block: 10px;
 }

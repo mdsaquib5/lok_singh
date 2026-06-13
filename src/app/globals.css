@@ -677,6 +677,7 @@ header {
     overflow: hidden;
     padding: 16px;
     transition: all 0.2s ease-out 0s;
+    border: 1px solid #9393a55c;
 }
 
 .media-card:hover {
